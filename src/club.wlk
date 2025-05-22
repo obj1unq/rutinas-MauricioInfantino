@@ -6,11 +6,8 @@ class Club{
 
     method prediosTranquis(persona) = predios.filter({predio => predio.tieneRutinaTranqui(persona)})
 
-    method rutinasExigentes(persona) {
-        const rutinasMasExigentes = #{}
-        predios.forEach({predio => rutinasMasExigentes.add(predio.rutinaMasExigentePara(persona))})
-        return rutinasMasExigentes
-    }
+    method rutinasExigentes(persona) = predios.map({predio => predio.rutinaMasExigentePara(persona)}).asSet()
+    
 }
 
 class Predio{
